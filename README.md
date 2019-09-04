@@ -1,2 +1,3 @@
 # ani-css
 Demo collection of css animation 
+Have fun playing...
