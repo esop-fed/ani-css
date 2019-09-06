@@ -9,12 +9,13 @@ import(
 var (
     listen = flag.String("listen", ":3030", "listen address")
     dir = flag.String("dir", ".", "directory to serve")
+    fsh = http.FileServer(http.Dir(*dir))
 )
 
 func main() {
     flag.Parse()
     log.Printf("listening on %q...", *listen)
-    log.Fatal(http.ListenAndServe(*listen, http.FileServer(http.Dir(*dir))))
+    log.Fatal(http.ListenAndServe(*listen, fsh))
     // log.Fatal(http.ListenAndServe(*listen, http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request){
     //  if strings.HasSuffix(req.URL.Path,".wasm"){
     //      resp.Header().Set("content-type","application/wasm")

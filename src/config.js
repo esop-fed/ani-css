@@ -3,7 +3,7 @@ export const config = {
         {
             "title": "ani-css",
             "description": "css demos",
-            "path": "programs"
+            "path": "/ani-css/programs"
         }
     ]
 }
