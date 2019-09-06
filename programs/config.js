@@ -5,7 +5,7 @@ export default {
             "list": [
                 {
                     "title": "🦋demo",
-                    "path": "./example/wlxm"
+                    "path": "example/wlxm"
                 }
             ]
         },
@@ -14,7 +14,7 @@ export default {
             "list": [
                 {
                     "title": "jianbo",
-                    "path": "./book/wlxm"
+                    "path": "book/wlxm"
                 }
             ]
         }
