@@ -1,0 +1,165 @@
+@import './animate.css';
+
+html, body， div {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --petal-base-angel: calc(360deg / 5);
+    --petal-color: red;
+    --petal-color2: purple;    
+    --petal-level2-color: purple;
+}
+
+/* .show {
+    opacity: 1;
+} */
+
+.hide {
+    display: none;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    padding: 120px 0;
+    overflow: hidden;
+    /* background-color: #000; */
+}
+
+.flower {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    left: 0;
+    transform-origin: bottom right;
+    transition: all .5s;
+    animation: spin 5s .5s linear infinite;    
+}
+
+/* .flower:hover {
+    animation: spin 5s .5s linear infinite;
+} */
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.petal {
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+.petal::before,
+.petal::after,
+.petal {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background: linear-gradient(to bottom right, var(--petal-color), #fff);
+    border-radius: 50% 250% 150%;
+    transform-origin: bottom right;
+    transition: all .5s linear;
+}
+.petal::before,
+.petal::after {
+    content: ' ';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+}
+
+.petal::after {
+    background: linear-gradient(to bottom right, var(--petal-level2-color), #fff);
+    width: 160%;
+    height: 160%;
+    opacity: 0.5;
+    animation-name: filter;
+}
+
+.petal::before {
+    width: 60%;
+    height: 60%;
+    animation-name: filter2;
+}
+
+/* .flower:hover */
+.petal:nth-child(1) {
+    animation-name: petal1;
+    /* transform: rotateZ(var(--petal-base-angel));     */
+}
+
+/* .flower:hover */
+.petal:nth-child(2) {
+    animation-name: petal2;
+    /* transform: rotateZ(var(--petal-base-angel) * 2);     */
+}
+
+/* .flower:hover */
+.petal:nth-child(3) {
+    animation-name: petal3;
+    /* transform: rotateZ(var(--petal-base-angel) * 3);     */
+}
+
+/* .flower:hover */
+.petal:nth-child(4) {
+    animation-name: petal4;
+    /* transform: rotateZ(var(--petal-base-angel) * 4);     */
+}
+
+/* .flower:hover */
+.petal:nth-child(5) {
+    animation-name: petal5;
+    /* transform: rotateZ(var(--petal-base-angel) * 5);     */
+}
+
+@keyframes petal1 {
+    from {}
+    to {
+        transform: rotateZ(var(--petal-base-angel));        
+    }
+}
+
+@keyframes petal2 {
+    from {}
+    to {
+        transform: rotateZ(calc(var(--petal-base-angel) * 2));
+    }
+}
+
+@keyframes petal3 {
+    from {}
+    to {
+        transform: rotateZ(calc(var(--petal-base-angel) * 3));
+    }
+}
+
+@keyframes petal4 {
+    from {}
+    to {
+        transform: rotateZ(calc(var(--petal-base-angel) * 4));
+    }
+}
+
+@keyframes petal5 {
+    from {}
+    to {
+        transform: rotateZ(calc(var(--petal-base-angel) * 5));
+    }
+}

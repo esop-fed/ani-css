@@ -1,0 +1,28 @@
+{
+  "name": "ani-css",
+  "version": "1.0.0",
+  "description": "Demo collection of css animation  Have fun playing...",
+  "main": "webpack.config.js",
+  "scripts": {
+    "start": "http-server -a 127.0.0.1 -p 7070"
+  },
+  "dependencies": {
+    "@types/node": "^12.7.4",
+    "babel-polyfill": "^6.26.0",
+    "http-server": "^0.11.1"
+  },
+  "devDependencies": {
+    "typescript": "^3.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esop-fed/ani-css.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/esop-fed/ani-css/issues"
+  },
+  "homepage": "https://github.com/esop-fed/ani-css#readme"
+}

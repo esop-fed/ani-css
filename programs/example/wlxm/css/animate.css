@@ -1,0 +1,17 @@
+@keyframes filter2 {
+    0%, 100% {
+        filter: drop-shadow(0px 0px 0px var(--petal-color2));
+    }
+    50% {
+        filter: drop-shadow(-16px -16px 20px var(--petal-color2)) invert(100%);
+    }
+}
+
+@keyframes filter {
+    0%, 100% {
+        filter: drop-shadow(0px 0px 0px var(--petal-color));
+    }
+    50% {
+        filter: drop-shadow(-16px -16px 20px var(--petal-color)) invert(100%);
+    }
+}

@@ -1,0 +1,143 @@
+@import './animate.css';
+
+:root {
+    --big-wing-color: red;
+    --big-wing-size: 1.4;
+    --wing-size: 40px;
+}
+
+.butterfly-wraper {
+    width: var(--wing-size);
+    height: var(--wing-size);
+}
+
+.butterfly {
+    position: relative;
+    width: inherit;
+    height: inherit;
+    transform-origin: bottom right;
+    transition: all .5s;
+    /* filter: drop-shadow(-100px 100px 0px var(--petal-color)); */
+}
+
+.butterfly .body,
+.wing::before,
+.wing::after,
+.wing {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background: linear-gradient(to bottom right, var(--big-wing-color), #fff);
+    border-radius: 50% 250% 150%;
+    transform-origin: bottom right;
+    transition: all .5s linear;
+}
+
+.butterfly .body {
+    transform: rotate(var(--petal-base-angel)) translate(60%, 60%);
+    border-radius: 10% 150% 10%;
+    background: #ccc;
+    z-index: -1;
+}
+
+.butterfly .body::before,
+.butterfly .body::after {
+    content: ' ';
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border: 5px solid transparent;
+    background-color: transparent;
+    border-radius: 0 50%;
+}
+
+.butterfly .body::before {
+    transform-origin: left top;
+    transform: rotate(100deg);
+    border-left-color: orange;
+}
+.butterfly .body::after {
+    transform-origin: left top;
+    transform: rotateY(180deg) rotateZ(-180deg);
+    border-left-color: orange;
+}
+
+.wing::before,
+.wing::after {
+    content: ' ';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+}
+
+.butterfly .body::before,
+.butterfly .body::after {
+    filter: opacity(.7);
+    animation: shake 4s infinite;
+}
+
+.wing::after {
+    background: linear-gradient(to bottom right, var(--petal-level2-color), #fff);
+    width: 160%;
+    height: 160%;
+    opacity: 0.5;
+    animation-name: filter;
+}
+
+.wing::before {
+    width: 60%;
+    height: 60%;
+    animation-name: filter2;
+}
+
+.wing:nth-child(1) {
+    --big-wing-color: purple;
+    z-index: 1;
+    animation: wave 1s infinite linear;
+}
+
+.wing:nth-child(2) {
+    transform: rotate(calc(var(--petal-base-angel) * 3));
+}
+
+.wing:nth-child(3) {
+    transform: rotate(calc(var(--petal-base-angel) * 4));
+}
+
+.wing:nth-child(4) {
+    --big-wing-color: purple;    
+    animation: wave2 1s infinite linear;
+}
+
+@keyframes shake {
+    0%, 100% {
+        border-radius: 0 50%;
+    }
+    
+    50% {
+        border-radius: 0 20%;        
+    }
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: rotateZ(calc(var(--petal-base-angel) * 2)) scale(var(--big-wing-size)) rotateY(0deg);      
+    }
+    
+    50% {
+        transform: rotateZ(calc(var(--petal-base-angel) * 2)) scale(var(--big-wing-size)) rotateY(30deg);
+    }
+}
+
+@keyframes wave2 {
+    0%, 100% {
+        transform: scale(var(--big-wing-size)) rotateX(0deg);      
+    }
+    
+    50% {
+        transform: scale(var(--big-wing-size)) rotateX(-30deg);
+    }
+}
