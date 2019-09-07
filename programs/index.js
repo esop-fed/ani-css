@@ -1,17 +1,33 @@
 import config from './config.js';
 import { createCards } from '../components/card-list.js';
+import Modal from '../components/modal.js';
+import transformMd from '../components/markdown.js';
+
+const modal = new Modal();
 
 const { programs } = config;
-const app = document.querySelector('.programs-container');
-const fragment = Object.entries(programs).reduce((html, [key, value]) => {
-    const div = document.createElement('div');
+const app = document.querySelector('.container');
+const fragment = Object.entries(programs).reduce((_fragment, [key, { list, description }]) => {
+    const section = document.createElement('section');
 
-    div.className = 'program';
-    div.innerHTML = createCards(value.list);
+    section.className = 'program-wrap';
+    section.innerHTML = `
+        <header>${description}</header>
+    `;
+    section.appendChild(createCards(list));
+    _fragment.appendChild(section);
 
-    html.appendChild(div);
-
-    return html;
+    return _fragment;
 }, document.createDocumentFragment());
 
 app.appendChild(fragment);
+
+const modalOpener = document.querySelector('.modal-opener');
+
+modalOpener.addEventListener('click', async () => {
+    // const html = await transformMd('../README.md', true);
+
+    modal.open({
+        html: transformMd('../README.md', true)
+    });
+})

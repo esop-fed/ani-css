@@ -4,4 +4,4 @@ import { createCards } from '../components/card-list.js';
 const { project } = config;
 const app = document.getElementById('app');
 
-app.innerHTML = createCards(project);
+app.append(createCards(project));
