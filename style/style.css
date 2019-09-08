@@ -1,229 +1,293 @@
-@import 'https://cdn.bootcss.com/normalize/8.0.1/normalize.css';
-@import 'https://cdn.bootcss.com/animate.css/3.7.2/animate.css';
-@import 'variables.css';
+@import "https://cdn.bootcss.com/normalize/8.0.1/normalize.css";
+@import "https://cdn.bootcss.com/animate.css/3.7.2/animate.css";
+@import "variables.css";
+
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:link,
 a:active,
 a:visited {
-    color: var(--text-color);
+  color: var(--text-color);
 }
 
 .container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: var(--container-base-width);
-    margin: 0 auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: var(--container-base-width);
+  margin: 0 auto;
+  padding: 0 var(--edge-base-gap);
 }
 
-.header {
-    width: 1200px;
-}
-
+/* .header {
+  max-width: inherit;
+} */
 
 /* wave */
 
 .flow-wave {
-    background: radial-gradient(circle at 10px -7px, transparent 8px, var(--primary-color) 8px, var(--primary-color) 9px, transparent 9px) repeat-x, radial-gradient(circle at 10px 27px, transparent 8px, var(--primary-color) 8px, var(--primary-color) 9px, transparent 9px) repeat-x, linear-gradient(to top, var(--primary-color) 40%, rgb(255, 255, 255)) repeat-x;
-    /* var(--primary-color); */
-    background-size: 20px 20px;
-    background-position: -10px calc(100% + 16px), 0 calc(100% - 4px);
-    animation: waveFlow 1s infinite linear;
+  background: radial-gradient(
+      circle at 10px -7px,
+      transparent 8px,
+      var(--primary-color) 8px,
+      var(--primary-color) 9px,
+      transparent 9px
+    )
+    repeat-x,
+  radial-gradient(
+      circle at 10px 27px,
+      transparent 8px,
+      var(--primary-color) 8px,
+      var(--primary-color) 9px,
+      transparent 9px
+    )
+    repeat-x,
+  linear-gradient(to top, var(--primary-color) 40%, rgb(255, 255, 255))
+    repeat-x;
+  /* var(--primary-color); */
+  background-size: 20px 20px;
+  background-position: -10px calc(100% + 16px), 0 calc(100% - 4px);
+  animation: waveFlow 1s infinite linear;
 }
 
 @keyframes waveFlow {
-    from {
-        background-position-x: -10px, 0;
-    }
-    to {
-        background-position-x: -30px, -20px;
-    }
+  from {
+    background-position-x: -10px, 0;
+  }
+  to {
+    background-position-x: -30px, -20px;
+  }
 }
 
+/* background animation */
+
+.stripe {
+  --line-color: transparent;
+  --block-color: rgba(112, 128, 144, 0.5);
+}
+
+.stripe {
+  background:
+    linear-gradient(135deg, var(--block-color) 21px, var(--line-color) 22px, var(--line-color) 24px, transparent 24px, transparent 67px, var(--line-color) 67px, var(--line-color) 69px, transparent 69px),
+    linear-gradient(225deg, var(--block-color) 21px, var(--line-color) 22px, var(--line-color) 24px, transparent 24px, transparent 67px, var(--line-color) 67px, var(--line-color) 69px, transparent 69px)0 64px,
+    radial-gradient(circle, var(--line-color) 12px, var(--block-color) 12px);
+  background-color:var(--block-color);
+  background-size: 64px 128px;
+  animation: stripe 4s linear infinite;
+}
+
+@keyframes stripe {
+    from {
+      /* 对应不同图片 */
+      background-position-x: 0, 0, 0;
+      /* background-position-y: 0, 0, 0; */
+    }
+    to {
+      background-position-x: -64px, 64px, -64px;
+      /* background-position-y: 0, 0, 0; */
+    }
+  }
 
 /* modal */
 
 .modal-wrap {
-    --padding-v: 12px;
-    --padding-h: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
+  --padding-v: var(--edge-base-gap);
+  --padding-h: calc(var(--edge-base-gap) * 2);
+}
+
+.modal-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
 }
 
 .modal-mask {
-    position: absolute;
-    background-color: rgba(0, 0, 0, .8);
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-wrap,
 .modal-mask {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .modal {
-    transform: translateX(-50%);
-    background-color: #fff;
-    padding: var(--padding-v) var(--padding-h);
-    min-width: 320px;
-    border-radius: 4px;
-    box-shadow: var(--box-shadow-base);
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: var(--padding-v) var(--padding-h);
+  margin: 0 var(--edge-base-gap);
+  border-radius: 4px;
+  box-shadow: var(--box-shadow-base);
 }
 
 .modal__header {
-    font-size: 16px;
-    text-align: center;
-    margin-bottom: var(--padding-v);
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: var(--padding-v);
 }
 
-
 /* card */
+.card {
+  --padding-v: 12px;
+  --padding-h: 12px;
+}
 
 .card {
-    position: relative;
-    display: block;
-    height: 200px;
-    border-radius: 8px;
-    box-shadow: var(--box-shadow-base);
-    color: var(--text-color);
-    transition: box-shadow .5s;
+  position: relative;
+  display: block;
+  height: 200px;
+  padding: var(--padding-v) var(--padding-h);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: box-shadow 0.5s;
+  box-shadow: var(--box-shadow-base);
+  color: var(--text-color);
 }
 
 .card:hover {
-    box-shadow: var(--box-shadow-hover);
-    animation-duration: .2s;
+  box-shadow: var(--box-shadow-hover);
+  animation-duration: 0.2s;
 }
 
 .card__title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: 0;
-    transform: translate(-50%, -50%);
-    padding: 5px 10px;
-    font-size: 40px;
-    /* color: #FFF; */
-    /* border: 1px dashed #CCC;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  padding: 5px 10px;
+  font-size: 40px;
+  /* color: #FFF; */
+  /* border: 1px dashed #CCC;
     background-color: var(--primary-color);
     outline: 2px solid var(--primary-color); */
 }
 
 .card__description {
-    color: var(--text-color-secondary);
+  color: var(--text-color-secondary);
 }
 
+/* .card-3D {
+  transform-style: preserve-3d;
+  transform-origin: left;
+  transform: rotateY(15deg);
+  transition: transform .5s;
+} */
+
+/* .card-3D:hover {
+  transform: rotateY(0) translateZ(10px);
+} */
 
 /* loading */
 
 .loading {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 48px;
-    text-align: center;
-    font-size: 12px;
-    color: var(--text-color-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-color-secondary);
 }
 
-.loading>div {
-    display: inline-block;
-    margin-bottom: 12px;
+.loading > div {
+  display: inline-block;
+  margin-bottom: 12px;
 }
 
-[data-loader='satellite'] {
-    position: relative;
-    width: 48px;
-    height: 48px;
-    animation: satellite 3s infinite linear;
-    border: 1px solid var(--primary-color);
-    border-radius: 100%;
+[data-loader="satellite"] {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  animation: satellite 3s infinite linear;
+  border: 1px solid var(--primary-color);
+  border-radius: 100%;
 }
 
-[data-loader='satellite']:before,
-[data-loader='satellite']:after {
-    position: absolute;
-    left: 0;
-    width: 15px;
-    height: 15px;
-    content: '';
-    border-radius: 100%;
-    background-color: var(--primary-color);
-    -webkit-box-shadow: 0 0 10px var(--primary-color);
-    box-shadow: 0 0 10px var(--primary-color);
+[data-loader="satellite"]:before,
+[data-loader="satellite"]:after {
+  position: absolute;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  content: "";
+  border-radius: 100%;
+  background-color: var(--primary-color);
+  -webkit-box-shadow: 0 0 10px var(--primary-color);
+  box-shadow: 0 0 10px var(--primary-color);
 }
 
-[data-loader='satellite']:after {
-    right: 0;
-    width: 24px;
-    height: 24px;
-    margin: 12px;
+[data-loader="satellite"]:after {
+  right: 0;
+  width: 24px;
+  height: 24px;
+  margin: 12px;
 }
 
 @-webkit-keyframes satellite {
-    from {
-        -webkit-transform: rotate(0) translateZ(0);
-        -ms-transform: rotate(0) translateZ(0);
-        -o-transform: rotate(0) translateZ(0);
-        transform: rotate(0) translateZ(0);
-    }
-    to {
-        -webkit-transform: rotate(360deg) translateZ(0);
-        -ms-transform: rotate(360deg) translateZ(0);
-        -o-transform: rotate(360deg) translateZ(0);
-        transform: rotate(360deg) translateZ(0);
-    }
+  from {
+    -webkit-transform: rotate(0) translateZ(0);
+    -ms-transform: rotate(0) translateZ(0);
+    -o-transform: rotate(0) translateZ(0);
+    transform: rotate(0) translateZ(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg) translateZ(0);
+    -ms-transform: rotate(360deg) translateZ(0);
+    -o-transform: rotate(360deg) translateZ(0);
+    transform: rotate(360deg) translateZ(0);
+  }
 }
 
 @-moz-keyframes satellite {
-    from {
-        -webkit-transform: rotate(0) translateZ(0);
-        -ms-transform: rotate(0) translateZ(0);
-        -o-transform: rotate(0) translateZ(0);
-        transform: rotate(0) translateZ(0);
-    }
-    to {
-        -webkit-transform: rotate(360deg) translateZ(0);
-        -ms-transform: rotate(360deg) translateZ(0);
-        -o-transform: rotate(360deg) translateZ(0);
-        transform: rotate(360deg) translateZ(0);
-    }
+  from {
+    -webkit-transform: rotate(0) translateZ(0);
+    -ms-transform: rotate(0) translateZ(0);
+    -o-transform: rotate(0) translateZ(0);
+    transform: rotate(0) translateZ(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg) translateZ(0);
+    -ms-transform: rotate(360deg) translateZ(0);
+    -o-transform: rotate(360deg) translateZ(0);
+    transform: rotate(360deg) translateZ(0);
+  }
 }
 
 @-o-keyframes satellite {
-    from {
-        -webkit-transform: rotate(0) translateZ(0);
-        -ms-transform: rotate(0) translateZ(0);
-        -o-transform: rotate(0) translateZ(0);
-        transform: rotate(0) translateZ(0);
-    }
-    to {
-        -webkit-transform: rotate(360deg) translateZ(0);
-        -ms-transform: rotate(360deg) translateZ(0);
-        -o-transform: rotate(360deg) translateZ(0);
-        transform: rotate(360deg) translateZ(0);
-    }
+  from {
+    -webkit-transform: rotate(0) translateZ(0);
+    -ms-transform: rotate(0) translateZ(0);
+    -o-transform: rotate(0) translateZ(0);
+    transform: rotate(0) translateZ(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg) translateZ(0);
+    -ms-transform: rotate(360deg) translateZ(0);
+    -o-transform: rotate(360deg) translateZ(0);
+    transform: rotate(360deg) translateZ(0);
+  }
 }
 
 @keyframes satellite {
-    from {
-        -webkit-transform: rotate(0) translateZ(0);
-        -ms-transform: rotate(0) translateZ(0);
-        -o-transform: rotate(0) translateZ(0);
-        transform: rotate(0) translateZ(0);
-    }
-    to {
-        -webkit-transform: rotate(360deg) translateZ(0);
-        -ms-transform: rotate(360deg) translateZ(0);
-        -o-transform: rotate(360deg) translateZ(0);
-        transform: rotate(360deg) translateZ(0);
-    }
+  from {
+    -webkit-transform: rotate(0) translateZ(0);
+    -ms-transform: rotate(0) translateZ(0);
+    -o-transform: rotate(0) translateZ(0);
+    transform: rotate(0) translateZ(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg) translateZ(0);
+    -ms-transform: rotate(360deg) translateZ(0);
+    -o-transform: rotate(360deg) translateZ(0);
+    transform: rotate(360deg) translateZ(0);
+  }
 }

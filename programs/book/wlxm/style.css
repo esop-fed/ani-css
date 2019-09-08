@@ -1,0 +1,69 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.book-wrap {
+    --y: 0;
+    --angleY: 0;
+    --z: 0;
+    --x: 15deg;
+    --w: 50vmin;
+    --h: 40vmax;
+}
+
+.book-wrap {
+    position: absolute;
+    /* transform: perspective(600px) rotateX(var(--x)); */
+    transform: perspective(1000px) translateY(-50%) translateZ(-100px);
+    width: var(--w);
+    height: var(--h);
+    left: 50%;
+    top: 50%;
+    filter: drop-shadow(-8px -5px 20px #AAA);
+}
+
+.page {
+    position: absolute;
+    width: var(--w);
+    height: var(--h);
+    transform-origin: left;
+    transform: perspective(1000px) rotateX(var(--x)) translateZ(var(--z)) rotateY(var(--angleY));
+    transform-style: preserve-3d;
+    background: rgb(252, 236, 227);
+    transition: transform .5s;
+    cursor: pointer;
+}
+
+.page-front,
+.page-back {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 12px;
+    transition: inherit;
+    backface-visibility: hidden;
+    text-align: center;
+    line-height: var(--h);
+    font-size: calc(var(--w) / 10);
+    background: repeating-linear-gradient(180deg,
+        transparent,
+        transparent 24px,
+        rgb(100, 100, 100) 25px);
+}
+
+.page-front {
+    z-index: 1;
+}
+
+.page-back {
+    transform: rotateY(180deg);
+}
+
+.page--active {
+    --y: 0;
+    --angleY: -180deg;
+    --z: 6px;
+}

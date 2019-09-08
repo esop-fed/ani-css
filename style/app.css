@@ -1,7 +1,7 @@
 #app {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%);
+    top: 25%;
+    left: var(--edge-base-gap);
+    right: var(--edge-base-gap);
+    perspective: 600px;
 }
