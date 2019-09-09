@@ -6,7 +6,7 @@ Have fun playing...
 
 ```bash
 git clone https://github.com/esop-fed/ani-css.git
-
+npm i
 npm start
 ```
 然后打开http://localhost:3030
