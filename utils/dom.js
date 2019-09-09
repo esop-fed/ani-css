@@ -9,4 +9,4 @@ export const createFragmentByTemplateString = htmlTemplateString => {
     template.innerHTML = htmlTemplateString;
 
     return template.content;
-}
+};

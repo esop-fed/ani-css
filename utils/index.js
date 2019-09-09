@@ -1,9 +1,7 @@
 export const promisify = fn =>
-    new Promise((resolve, reject) =>
-        (...args) => fn(...args, (err, result) =>
-            err ? reject(err) : resolve(result)
-        )
-    )
+    new Promise((resolve, reject) => (...args) =>
+        fn(...args, (err, result) => (err ? reject(err) : resolve(result)))
+    );
 
 export const readBlob = blob => {
     const reader = new FileReader();
@@ -13,19 +11,23 @@ export const readBlob = blob => {
     return new Promise(resolve => {
         reader.onload = e => {
             resolve(e.target.result);
-        }
-    })
-}
+        };
+    });
+};
 
 export const getType = v =>
-    v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name.toLowerCase();
+    v === undefined
+        ? 'undefined'
+        : v === null
+        ? 'null'
+        : v.constructor.name.toLowerCase();
 
 export const loadScript = (url, globalName) => {
     const script = document.createElement('script');
     const body = document.querySelector('body');
 
     script.src = url;
-    
+
     body.appendChild(script);
 
     return new Promise((resolve, reject) => {
@@ -35,9 +37,9 @@ export const loadScript = (url, globalName) => {
 
         script.onerror = err => {
             reject(err);
-        }
-    })
-}
+        };
+    });
+};
 
 export const loadCss = url => {
     const css = document.createElement('link');
@@ -46,4 +48,4 @@ export const loadCss = url => {
     css.href = url;
 
     document.head.appendChild(css);
-}
+};

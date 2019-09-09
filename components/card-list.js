@@ -9,7 +9,7 @@ export const createCard = ({ title, path, description }) => {
     `;
 
     return createFragmentByTemplateString(templateString);
-}
+};
 
 export const createCards = list => {
     const fragmanet = document.createDocumentFragment();
@@ -22,4 +22,4 @@ export const createCards = list => {
     fragmanet.append(...fragmanetList);
 
     return fragmanet;
-}
+};

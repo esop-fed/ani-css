@@ -1,9 +1,9 @@
-export const config = {
-    "project": [
+export default {
+    project: [
         {
-            "title": "ani-css",
-            "description": "css demos",
-            "path": "/ani-css/programs"
+            title: 'ani-css',
+            description: 'css demos',
+            path: '/ani-css/programs'
         }
     ]
-}
+};

@@ -13,7 +13,7 @@ book.innerHTML = data.reduce((html, [a, b]) => {
     return html;
 }, ``);
 
-const pages = book.querySelectorAll('.page')
+const pages = book.querySelectorAll('.page');
 
 pages.forEach((node, index) => {
     node.style.zIndex = len - index;
@@ -28,5 +28,5 @@ pages.forEach((node, index) => {
         } else {
             node.style.zIndex = len - index;
         }
-    })
-})
+    });
+});
