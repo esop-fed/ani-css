@@ -6,22 +6,24 @@ import { getType } from '../utils/index.js';
 //     }
 
 //     open() {
-//         const 
+//         const
 //     }
 // }
 
 export default class Modal {
     /**
-     * 
+     *
      * @param {{
      *      mask: { in: string, out: string },
      *      modal: { in: string, out: string }
      * }} config 过度动画类名
      */
-    constructor(config = {
-        mask: { in: 'fadeIn', out: 'fadeOut' },
-        modal: { in: 'bounceInDown', out: 'hinge' }
-    }) {
+    constructor(
+        config = {
+            mask: { in: 'fadeIn', out: 'fadeOut' },
+            modal: { in: 'bounceInDown', out: 'hinge' }
+        }
+    ) {
         if (Modal.instance) {
             Object.assign(Modal.instance, config);
 
@@ -48,7 +50,7 @@ export default class Modal {
     // html 可以是html字符串模板或者dom节点；appendTo：默认挂在body上，可以自定义；
     async open({ title = '标题', html, appendTo = null }) {
         if (!html) {
-            console.error(`${html} 内容不正确`)
+            console.error(`${html} 内容不正确`);
             return;
         }
 

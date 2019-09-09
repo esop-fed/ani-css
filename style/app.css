@@ -1,7 +1,10 @@
 #app {
-    position: absolute;
-    top: 25%;
-    left: var(--edge-base-gap);
-    right: var(--edge-base-gap);
-    perspective: 600px;
+    padding: var(--edge-base-gap)
+}
+
+.markdown-body {
+    margin-top: var(--edge-base-gap);
+    background-color: #fff;
+    padding: var(--edge-base-gap);
+    border-radius: 4px;
 }

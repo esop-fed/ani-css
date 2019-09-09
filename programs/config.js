@@ -1,22 +1,22 @@
 export default {
-    "programs": {
-        "book": {
-            "description": "使用前端技术绘制一本立体书，最好带动效哦😯～",
-            "list": [
+    programs: {
+        book: {
+            description: '使用前端技术绘制一本立体书，最好带动效哦😯～',
+            list: [
                 {
-                    "title": "jianbo",
-                    "path": "book/wlxm"
+                    title: 'jianbo',
+                    path: 'book/wlxm'
                 }
             ]
         },
-        "example": {
-            "description": "画一只蝴蝶🦋",
-            "list": [
+        example: {
+            description: '画一只蝴蝶🦋',
+            list: [
                 {
-                    "title": "🦋demo",
-                    "path": "example/wlxm"
+                    title: '🦋demo',
+                    path: 'example/wlxm'
                 }
             ]
         }
     }
-}
+};
