@@ -1,32 +1,12 @@
 import 'https://cdn.bootcss.com/marked/0.7.0/marked.min.js';
-import { readBlob, loadScript } from '../utils/index.js';
+import { readBlob, loadScript, loadCss } from '../utils/index.js';
 
-const githubCSS = document.createElement('link');
+loadCss('https://cdn.bootcss.com/github-markdown-css/3.0.1/github-markdown.min.css');
 
-githubCSS.rel = 'stylesheet';
-githubCSS.href = 'https://cdn.bootcss.com/github-markdown-css/3.0.1/github-markdown.min.css';
-document.head.appendChild(githubCSS);
-
-const loadDep = ((marked, hljs) => async () => {
+const loadDep = (marked => async () => {
     try {
-        if (!marked || !hljs) {
+        if (!marked) {
             marked = await loadScript('https://cdn.bootcss.com/marked/0.7.0/marked.min.js', 'marked');
-            hljs = await loadScript('https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js', 'hljs');
-
-            // marked.setOptions({
-            //     renderer: new marked.Renderer(),
-            //     highlight: function(code) {
-            //         return hljs.highlightAuto(code).value;
-            //     },
-            //     pedantic: false,
-            //     gfm: true,
-            //     tables: true,
-            //     breaks: false,
-            //     sanitize: false,
-            //     smartLists: true,
-            //     smartypants: false,
-            //     xhtml: false
-            // });
         }
 
         return { marked }

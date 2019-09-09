@@ -38,3 +38,12 @@ export const loadScript = (url, globalName) => {
         }
     })
 }
+
+export const loadCss = url => {
+    const css = document.createElement('link');
+
+    css.rel = 'stylesheet';
+    css.href = url;
+
+    document.head.appendChild(css);
+}
