@@ -1,34 +1,59 @@
 import 'https://cdn.bootcss.com/marked/0.7.0/marked.min.js';
+import { readBlob, loadScript } from '../utils/index.js';
 
-const marked = window.marked;
+const githubCSS = document.createElement('link');
+
+githubCSS.rel = 'stylesheet';
+githubCSS.href = 'https://cdn.bootcss.com/github-markdown-css/3.0.1/github-markdown.min.css';
+document.head.appendChild(githubCSS);
+
+const loadDep = ((marked, hljs) => async () => {
+    try {
+        if (!marked || !hljs) {
+            marked = await loadScript('https://cdn.bootcss.com/marked/0.7.0/marked.min.js', 'marked');
+            hljs = await loadScript('https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js', 'hljs');
+
+            // marked.setOptions({
+            //     renderer: new marked.Renderer(),
+            //     highlight: function(code) {
+            //         return hljs.highlightAuto(code).value;
+            //     },
+            //     pedantic: false,
+            //     gfm: true,
+            //     tables: true,
+            //     breaks: false,
+            //     sanitize: false,
+            //     smartLists: true,
+            //     smartypants: false,
+            //     xhtml: false
+            // });
+        }
+
+        return { marked }
+    } catch (error) {
+        throw error;
+    }
+})();
 
 export default async function transformMd(md, remote = false) {
-    if (!marked) {
-        throw new Error('https://cdn.bootcss.com/marked/0.7.0/marked.min.js 加载失败！');
-    }
+    try {
+        // 加载依赖
+        const { marked } = await loadDep();
+        let container = document.createElement('div');
 
-    if (!remote) {
-        return marked(md);
-    } else {
-        try {
+        container.className = 'markdown-body';
+
+        if (!remote) {
+            container.innerHTML = marked(md);
+        } else {
             const res = await fetch(md);
             const content = await readBlob(await res.blob());
 
-            return marked(content);
-        } catch(err) {
-            throw err;
+            container.innerHTML = marked(content);
         }
+
+        return container;
+    } catch (error) {
+        throw error;
     }
-}
-
-export function readBlob(blob) {
-    const reader = new FileReader();
-
-    reader.readAsBinaryString(blob);
-
-    return new Promise(resolve => {
-        reader.onload = e => {
-            resolve(e.target.result);
-        }
-    })
 }

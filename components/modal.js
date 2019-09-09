@@ -86,7 +86,10 @@ export default class Modal {
                     加载中...
                 </div>
             `;
+
             html = await html;
+
+            container.innerHTML = null;
         }
 
         if (typeof html === 'string') {

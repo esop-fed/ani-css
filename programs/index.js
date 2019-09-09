@@ -28,6 +28,7 @@ modalOpener.addEventListener('click', async () => {
     // const html = await transformMd('../README.md', true);
 
     modal.open({
+        title: '测试Modal和Markdown',
         html: transformMd('../README.md', true)
     });
 })

@@ -1,5 +1,5 @@
-@import "https://cdn.bootcss.com/normalize/8.0.1/normalize.css";
-@import "https://cdn.bootcss.com/animate.css/3.7.2/animate.css";
+@import "https://cdn.bootcss.com/normalize/8.0.1/normalize.min.css";
+@import "https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css";
 @import "variables.css";
 
 a {
@@ -121,9 +121,11 @@ a:visited {
 
 .modal {
   transform: translateX(-50%);
-  background-color: #fff;
+  max-height: 75vh;
+  overflow: auto;
   padding: var(--padding-v) var(--padding-h);
   margin: 0 var(--edge-base-gap);
+  background-color: #fff;
   border-radius: 4px;
   box-shadow: var(--box-shadow-base);
 }

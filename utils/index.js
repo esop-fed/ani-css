@@ -8,7 +8,7 @@ export const promisify = fn =>
 export const readBlob = blob => {
     const reader = new FileReader();
 
-    reader.readAsBinaryString(blob);
+    reader.readAsText(blob, 'utf-8');
 
     return new Promise(resolve => {
         reader.onload = e => {
@@ -19,3 +19,22 @@ export const readBlob = blob => {
 
 export const getType = v =>
     v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name.toLowerCase();
+
+export const loadScript = (url, globalName) => {
+    const script = document.createElement('script');
+    const body = document.querySelector('body');
+
+    script.src = url;
+    
+    body.appendChild(script);
+
+    return new Promise((resolve, reject) => {
+        script.onload = () => {
+            resolve(window[globalName]);
+        };
+
+        script.onerror = err => {
+            reject(err);
+        }
+    })
+}
