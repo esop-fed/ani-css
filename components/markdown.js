@@ -1,17 +1,39 @@
 import 'https://cdn.bootcss.com/marked/0.7.0/marked.min.js';
 import { readBlob, loadScript, loadCss } from '../utils/index.js';
 
+// loadCss(
+//     'https://cdn.bootcss.com/github-markdown-css/3.0.1/github-markdown.min.css'
+// );
+
 loadCss(
-    'https://cdn.bootcss.com/github-markdown-css/3.0.1/github-markdown.min.css'
+    'https://cdn.bootcss.com/highlight.js/9.15.10/styles/atom-one-dark.min.css'
 );
 
-const loadDep = (marked => async () => {
+const loadDep = ((marked, hljs) => async () => {
     try {
         if (!marked) {
             marked = await loadScript(
                 'https://cdn.bootcss.com/marked/0.7.0/marked.min.js',
                 'marked'
             );
+
+            hljs = await loadScript(
+                'https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js',
+                'hljs'
+            );
+
+            marked.setOptions({
+                renderer: new marked.Renderer(),
+                highlight: code => hljs.highlightAuto(code).value,
+                pedantic: false,
+                gfm: true,
+                tables: true,
+                breaks: false,
+                sanitize: false,
+                smartLists: true,
+                smartypants: false,
+                xhtml: false
+            });
         }
 
         return { marked };
@@ -41,6 +63,12 @@ export default async function markdown(md, remote = false) {
 
             container.innerHTML = marked(content);
         }
+
+        const pres = container.querySelectorAll('pre');
+
+        pres.forEach(pre => {
+            pre.className = 'hljs';
+        });
 
         return container;
     } catch (error) {

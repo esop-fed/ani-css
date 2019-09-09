@@ -1,4 +1,6 @@
 // javascript
+import markdown from '../../../components/markdown.js';
+
 ((g, d) => {
     const flower = d.querySelector('.flower');
     const butterfly = d.querySelector('.butterfly');
@@ -15,5 +17,11 @@
         }
 
         count++;
+    });
+
+    const readme = document.querySelector('.readme');
+
+    markdown('/ani-css/programs/example/wlxm/readme.md', true).then(node => {
+        readme.append(node);
     });
 })(window, document);

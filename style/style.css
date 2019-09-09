@@ -13,15 +13,9 @@ a:visited {
 }
 
 .container {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   max-width: var(--container-base-width);
   margin: 0 auto;
-  padding: 0 var(--edge-base-gap);
-  overflow: auto;
+  padding: var(--edge-base-gap);
 }
 
 /* .header {
