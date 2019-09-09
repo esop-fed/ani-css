@@ -7,6 +7,6 @@ const app = document.getElementById('app');
 
 app.append(createCards(project));
 
-markdown('../README.md', true).then(node => {
+markdown('/ani-css/README.md', true).then(node => {
     app.append(node);
 });
