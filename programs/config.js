@@ -6,6 +6,10 @@ export default {
                 {
                     title: 'jianbo',
                     path: 'book/wlxm'
+                },
+                {
+                    title: 'yuchi',
+                    path: 'book/johninch'
                 }
             ]
         },
