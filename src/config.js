@@ -1,7 +1,7 @@
 export default {
     project: [
         {
-            title: 'ani-css',
+            title: 'Ani-css',
             description: 'css demos',
             path: '/ani-css/programs'
         }
