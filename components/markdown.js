@@ -67,7 +67,7 @@ export default async function markdown(md, remote = false) {
         const pres = container.querySelectorAll('pre');
 
         pres.forEach(pre => {
-            pre.className = 'hljs';
+            pre.classList.add('hljs');
         });
 
         return container;

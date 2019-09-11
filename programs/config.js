@@ -8,6 +8,10 @@ export default {
                     path: 'book/wlxm'
                 },
                 {
+                    title: 'yuchi',
+                    path: 'book/johninch'
+                },
+                {
                     title: 'db',
                     path: 'book/db'
                 }

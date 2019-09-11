@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #d0d0d0;
+    }
+    .book-wrapper {
+        width: 300px;
+        height: 450px;
+        margin: 100px auto;
+        position: relative;
+        transform-style: preserve-3d;
+        perspective: 1200px;        /* 景深 */
+    }
+    .page {
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #0ba6ee;
+        transition: 1.5s;
+        transform-origin: left;
+        border: 10px solid #fff;
+    }
+
+    .page-front {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        font-size: 26px;
+        line-height: 450px;
+        background: greenyellow;
+        position: absolute;
+        backface-visibility: hidden;  /* 背面不可见 */
+    }
+    .page-back {
+        width: 100%;
+        height: 100%;
+        filter: brightness(50%);
+        background: #f0f0f0;
+        position: absolute;
+    }
+
+</style>
+<body>
+    <div class="book-wrapper"></div>
+</body>
+<script>
+    let bookWrapper = document.getElementsByClassName("book-wrapper");
+
+    const pages = ['Lets Read', 'ani-css', 'quest-SC', 'question-bank', 'wanted', 'End'];
+
+
+    // 添加元素
+    bookWrapper[0].innerHTML = pages.reduce((html, name) => {
+        return html += `
+        <div class="page">
+            <div class="page-back"></div>
+            <div class="page-front">${name}</div>
+        </div>
+    `;
+    }, ``);
+
+    let bookPages = document.getElementsByClassName("page");
+
+    Array.from(bookPages).forEach((node, index) => {
+        node.style.zIndex = bookPages.length - index;
+        // 最后一个元素标识
+        if (index === bookPages.length - 1) {
+            node.setAttribute("data-index", 'end');
+        }
+    });
+
+    // 点击事件
+    bookWrapper[0].onclick = (e) => {
+        if (e.target.parentNode.getAttribute('data-index') === 'end') {
+            for (let i = 0; i < bookPages.length - 1; i++) {
+                bookPages[i].style.transform = null;
+            }
+            return false;
+        }
+
+        if (e.target.classList.contains('page-front')) {
+            e.target.parentNode.style.transform = "rotateY(-120deg)"
+        } else {
+            e.target.parentNode.style.transform = null;
+        }
+    }
+</script>
+</html>
