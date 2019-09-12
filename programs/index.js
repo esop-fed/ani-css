@@ -10,12 +10,13 @@ const app = document.querySelector('.container');
 const fragment = Object.entries(programs).reduce(
     (_fragment, [key, { list, description }]) => {
         const section = document.createElement('section');
+        const cardList = document.createElement('div');
 
         section.className = 'program-wrap';
-        section.innerHTML = `
-        <header>${description}</header>
-    `;
-        section.appendChild(createCards(list));
+        cardList.className = 'card-list';
+        section.innerHTML = `<header>${description}</header>`;
+        cardList.appendChild(createCards(list));
+        section.appendChild(cardList);
         _fragment.appendChild(section);
 
         return _fragment;

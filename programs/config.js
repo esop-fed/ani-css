@@ -31,6 +31,10 @@ export default {
                 {
                     title: '🦋demo',
                     path: 'example/wlxm'
+                },
+                {
+                    title: '3dBox',
+                    path: 'example/3dBox'
                 }
             ]
         }
