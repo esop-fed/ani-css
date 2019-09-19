@@ -1,5 +1,5 @@
 {
-    "plugins": ["prettier"],
+    "plugins": ["prettier", "babel"],
     "parserOptions": {
         "ecmaVersion": 6,
         "sourceType": "module",
@@ -7,8 +7,9 @@
             "modules": true
         }
     },
-    "parser": "esprima",
+    "parser": "babel-eslint",
     "rules": {
-      "prettier/prettier": "error"
+        "babel/semi": 0,
+        "prettier/prettier": "error"
     }
 }

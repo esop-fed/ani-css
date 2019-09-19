@@ -65,7 +65,7 @@ function initial(app) {
 initial(app);
 
 /**
- * 
+ * 初始化画布
  * @param {CanvasRenderingContext2D} ctx Context2D
  * @param {{x: nnumber; y: number}} edge 边界
  * @param {HTMLCanvasElement} canvas 画布dom节点
