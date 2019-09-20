@@ -72,7 +72,7 @@ initial(app);
  */
 function initialDraw(ctx, edge, canvas) {
     const particles = [];
-    const total = 200;
+    const total = 1000;
     const mouseParticle = new Particle({
         edge,
         color: '#f0f',
