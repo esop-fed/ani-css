@@ -2,10 +2,10 @@
 @import "https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css";
 @import "variables.css";
 
-* {
+/* * {
   margin: 0;
   padding: 0;
-}
+} */
 a {
   text-decoration: none;
 }

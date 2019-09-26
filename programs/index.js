@@ -31,6 +31,6 @@ const modalOpener = document.querySelector('.modal-opener');
 modalOpener.addEventListener('click', () => {
     modal.open({
         title: '测试Modal和Markdown',
-        html: markdown('../README.md', true)
+        html: markdown('./book/summary.md', true)
     });
 });
