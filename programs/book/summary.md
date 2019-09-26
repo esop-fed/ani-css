@@ -5,19 +5,19 @@
 #### 依次是（yuchi、konglei、jianbo、tengda、dubin）
 <p>
     <a href="https://esop-fed.github.io/ani-css/programs/book/johninch">
-        <img width="240" alt="yuchi" src="https://esop-fed.github.io/ani-css/programs/book/johninch/poster.jpg">
+        <img height="120" alt="yuchi" src="https://esop-fed.github.io/ani-css/programs/book//johninch/poster.jpg">
     <a>
     <a href="https://esop-fed.github.io/ani-css/programs/book/Caleb">
-        <img width="240" alt="konglei" src="https://esop-fed.github.io/ani-css/programs/book/Caleb/poster.jpg">
+        <img height="120" alt="konglei" src="https://esop-fed.github.io/ani-css/programs/book//Caleb/poster.jpg">
     <a>
-    <a href="https://esop-fed.github.io/ani-css/programs/book/jianbo">
-        <img width="240" alt="jianbo" src="https://esop-fed.github.io/ani-css/programs/book/jianbo/poster.jpg">
+    <a href="https://esop-fed.github.io/ani-css/programs/book/wlxm">
+        <img height="120" alt="jianbo" src="https://esop-fed.github.io/ani-css/programs/book//wlxm/poster.jpg">
     <a>
     <a href="https://esop-fed.github.io/ani-css/programs/book/mtd">
-        <img width="240" alt="tengda" src="https://esop-fed.github.io/ani-css/programs/book/mtd/poster.jpg">
+        <img height="120" alt="tengda" src="https://esop-fed.github.io/ani-css/programs/book//mtd/poster.jpg">
     <a>
     <a href="https://esop-fed.github.io/ani-css/programs/book/db">
-        <img width="240" alt="dubin" src="https://esop-fed.github.io/ani-css/programs/book/db/poster.jpg">
+        <img height="120" alt="dubin" src="https://esop-fed.github.io/ani-css/programs/book//db/poster.jpg">
     <a>
 </p>
 
