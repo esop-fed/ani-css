@@ -1,16 +1,25 @@
 ## 题目：绘制一本书
-描述：使用前端技术绘制一本立体书，最好带动效哦😯～
+描述：使用前端技术绘制一本立体书，最好带动效哦～
 
 ### esop-fe 团队
-[![yuchi](https://esop-fed.github.io/ani-css/programs/book/johninch/poster.jpg)](https://esop-fed.github.io/ani-css/programs/book/johninch)
-
-[![kl](https://esop-fed.github.io/ani-css/programs/book/Caleb/poster.jpg)](https://esop-fed.github.io/ani-css/programs/book/Caleb)
-
-[[![jianbo](https://esop-fed.github.io/ani-css/programs/book/wlxm/poster.jpg)](https://esop-fed.github.io/ani-css/programs/book/wlxm)
-
-[[![mtd](https://esop-fed.github.io/ani-css/programs/book/mtd/poster.jpg)](https://esop-fed.github.io/ani-css/programs/book/mtd)
-
-[[![db](https://esop-fed.github.io/ani-css/programs/book/db/poster.jpg)](https://esop-fed.github.io/ani-css/programs/book/db)
+#### 依次是（yuchi、konglei、jianbo、tengda、dubin）
+<p>
+    <a href="https://esop-fed.github.io/ani-css/programs/book/johninch">
+        <img width="240" alt="yuchi" src="https://esop-fed.github.io/ani-css/programs/book/johninch/poster.jpg">
+    <a>
+    <a href="https://esop-fed.github.io/ani-css/programs/book/Caleb">
+        <img width="240" alt="konglei" src="https://esop-fed.github.io/ani-css/programs/book/Caleb/poster.jpg">
+    <a>
+    <a href="https://esop-fed.github.io/ani-css/programs/book/jianbo">
+        <img width="240" alt="jianbo" src="https://esop-fed.github.io/ani-css/programs/book/jianbo/poster.jpg">
+    <a>
+    <a href="https://esop-fed.github.io/ani-css/programs/book/mtd">
+        <img width="240" alt="tengda" src="https://esop-fed.github.io/ani-css/programs/book/mtd/poster.jpg">
+    <a>
+    <a href="https://esop-fed.github.io/ani-css/programs/book/db">
+        <img width="240" alt="dubin" src="https://esop-fed.github.io/ani-css/programs/book/db/poster.jpg">
+    <a>
+</p>
 
 ### 总结
 1. CSS 属性 perspective指定了观察者与 z=0 平面的距离，使具有三维位置变换的元素产生透视效果。 z>0 的三维元素比正常大，而 z<0 时则比正常小，大小程度由该属性的值决定。
