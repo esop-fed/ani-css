@@ -1,7 +1,7 @@
 import config from './config.js';
-import { createCards } from '../components/card-list.js';
-import markdown from '../components/markdown.js';
-import { loadScript } from '../utils/index.js';
+import { createCards } from '/ani-css/components/card-list.js';
+import markdown from '/ani-css/components/markdown.js';
+import { loadScript } from '/ani-css/utils/index.js';
 import createBlob from './components/blob.js';
 
 const { project } = config;

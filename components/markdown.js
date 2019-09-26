@@ -1,9 +1,9 @@
 import 'https://cdn.bootcss.com/marked/0.7.0/marked.min.js';
 import { readBlob, loadScript, loadCss } from '../utils/index.js';
 
-// loadCss(
-//     'https://cdn.bootcss.com/github-markdown-css/3.0.1/github-markdown.min.css'
-// );
+loadCss(
+    'https://cdn.bootcss.com/github-markdown-css/3.0.1/github-markdown.min.css'
+);
 
 loadCss(
     'https://cdn.bootcss.com/highlight.js/9.15.10/styles/atom-one-dark.min.css'

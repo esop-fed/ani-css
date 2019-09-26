@@ -3,8 +3,5 @@
 }
 
 .markdown-body {
-    margin-top: var(--edge-base-gap);
-    background-color: #fff;
-    padding: var(--edge-base-gap);
     border-radius: 4px;
 }

@@ -16,6 +16,13 @@ a:visited {
   color: var(--text-color);
 }
 
+.markdown-body {
+  margin-top: var(--edge-base-gap);
+  background-color: #fff;
+  padding: var(--edge-base-gap);
+  border-radius: 4px;
+}
+
 .container {
   max-width: var(--container-base-width);
   margin: 0 auto;
@@ -173,6 +180,16 @@ a:visited {
   color: var(--text-color-secondary);
 }
 
+.card-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-size: cover;
+}
+
 /* .card-3D {
   transform-style: preserve-3d;
   transform-origin: left;
@@ -183,6 +200,29 @@ a:visited {
 /* .card-3D:hover {
   transform: rotateY(0) translateZ(10px);
 } */
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -12px;
+}
+
+.card-list .card {
+  max-width: 320px;
+  min-width: 240px;
+  margin: var(--padding-h);
+}
+
+@media screen and (max-width: 450px) {
+  .card-list {
+      display: block;
+      margin-left: 0;
+  }
+  .card-list .card {
+      width: inherit;
+      margin-left: 0;
+  }
+}
 
 /* loading */
 
