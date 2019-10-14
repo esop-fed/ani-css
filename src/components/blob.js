@@ -49,8 +49,10 @@ function setEyeLocation({
 }
 
 function getElLocation(el) {
+    const rect = el.getBoundingClientRect();
+
     return {
-        x: el.getBoundingClientRect().left,
-        y: el.getBoundingClientRect().top
+        x: rect.left,
+        y: rect.top
     };
 }
