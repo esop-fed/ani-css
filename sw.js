@@ -1,6 +1,6 @@
 self.addEventListener('install', evt => {
     evt.waitUntil(
-        caches.open('v1').then(cache => {
+        caches.open('v2').then(cache => {
             return cache.addAll([
                 '/ani-css/',
                 '/ani-css/index.html',
@@ -27,7 +27,7 @@ self.addEventListener('fetch', evt => {
                     return fetch(evt.request).then(res => {
                         let responseClone = res.clone();
 
-                        caches.open('v1').then(cache => {
+                        caches.open('v2').then(cache => {
                             cache.put(evt.request, responseClone);
                         });
 
