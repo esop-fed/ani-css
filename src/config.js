@@ -25,5 +25,6 @@ export default {
             description: 'css demos',
             path: '/ani-css/programs'
         }
-    ]
+    ],
+    users: ['niannings', 'johninch', 'dannisi', 'Xmtd', 'febcat', 'superwyk']
 };
