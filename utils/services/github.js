@@ -11,4 +11,4 @@ export const user = {
     async get(path) {
         return fetch(this.api(path)).then(res => res.json());
     }
-}
+};
