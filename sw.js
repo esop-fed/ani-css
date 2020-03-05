@@ -1,10 +1,10 @@
-const CHACH_PREFIX = 'catch_';
+const CACHE_PREFIX = 'anicss_catch_';
 const VERSION = 'v1.0';
-const CATCH_NAME = CHACH_PREFIX + VERSION;
+const CACHE_NAME = CACHE_PREFIX + VERSION;
 
-self.addEventListener('install', evt => {
-    evt.waitUntil(
-        caches.open(CATCH_NAME).then(cache => {
+self.addEventListener('install', event => {
+    event.waitUntil(
+        caches.open(CACHE_NAME).then(cache => {
             return cache.addAll([
                 '/ani-css/',
                 '/ani-css/index.html',
@@ -17,6 +17,28 @@ self.addEventListener('install', evt => {
         })
     );
     console.log('installed');
+});
+
+// 缓存更新策略
+self.addEventListener('activate', event => {
+    /**
+     * 在激活事件activate监听事件中清除历史缓存，在这里需要注意的是caches.keys遍历的是当前域下所有的cache，
+     * 可能同域下的其它path也使用了Service Worker进行资源缓存。
+     */
+    event.waitUntil(
+        caches.keys().then(cacheNames => {
+            return Promise.all(
+                cacheNames.map(name => {
+                    if (
+                        name !== CACHE_NAME &&
+                        name.indexOf(CACHE_PREFIX) !== -1
+                    ) {
+                        return caches.delete(name);
+                    }
+                })
+            );
+        })
+    );
 });
 
 self.addEventListener('fetch', event => {
@@ -37,7 +59,7 @@ self.addEventListener('fetch', event => {
 
     event.respondWith(
         caches
-            .open(CATCH_NAME)
+            .open(CACHE_NAME)
             .then(cache => {
                 return cache.match(url);
             })
@@ -61,7 +83,7 @@ function addToCache(req) {
             if (res.status !== '200' || !/^(basic|cors)$/.test(res.type)) {
                 return res;
             }
-            caches.open(CATCH_NAME).then(cache => {
+            caches.open(CACHE_NAME).then(cache => {
                 cache.put(req.clone(), cacheRes);
             });
             return res;
