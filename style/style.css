@@ -1,5 +1,5 @@
-@import "https://cdn.bootcss.com/normalize/8.0.1/normalize.min.css";
-@import "https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css";
+@import "lib/normalize.css";
+@import "lib/animate.css";
 @import "variables.css";
 
 /* * {
@@ -140,7 +140,14 @@ a:visited {
 .modal__header {
   font-size: 16px;
   text-align: center;
-  margin-bottom: var(--padding-v);
+  margin: var(--padding-v) 0;
+}
+
+/* 外部链接使用弹窗打开 */
+.outlink-window {
+  width: 80vw;
+  height: 80vh;
+  border: none;
 }
 
 /* card */

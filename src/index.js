@@ -10,7 +10,7 @@ const root = document.getElementById('app');
 App().then(res => {
     root.append(res.component);
     res.onload();
-})
+});
 
 // app.append(createCards(project));
 

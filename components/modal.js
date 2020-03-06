@@ -48,7 +48,13 @@ export default class Modal {
     }
 
     // html 可以是html字符串模板或者dom节点；appendTo：默认挂在body上，可以自定义；
-    async open({ title = '标题', html, appendTo = null }) {
+    async open({
+        title = '标题',
+        html,
+        appendTo = null,
+        style = {},
+        showHeader
+    }) {
         if (!html) {
             console.error(`${html} 内容不正确`);
             return;
@@ -66,9 +72,17 @@ export default class Modal {
         wrap.className = 'modal-wrap';
         wrap.innerHTML = `
             <div class="modal-mask animated ${maskAnimateConfig.in}"></div>
-            <div class="modal animated ${modalAnimateConfig.in}">
-                <header class="modal__header">${title}</header>
-                <article class="modal__content"></article>
+            <div class="modal animated ${modalAnimateConfig.in}" style='${
+            style.wrap
+        }'>
+                ${
+                    showHeader
+                        ? `<header class="modal__header" style='${style.header}'>${title}</header>`
+                        : ''
+                }
+                <article class="modal__content" style='${
+                    style.content
+                }'></article>
             </div>
         `;
 

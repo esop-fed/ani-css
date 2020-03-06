@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script type="module">
+        import Fireworkds, { Vector2D } from './index.js';
+
+        initial(canvas, 100);
+
+        function initial(canvas, count = 10) {
+            const fireworks = new Fireworkds({
+                canvas,
+                auto: true,
+                density: count,
+                frequency: 3000
+            });
+            const moveStart = new Vector2D(0, 0);
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            fireworks.launch({
+                position: new Vector2D(canvas.width / 2, canvas.height)
+            });
+
+            window.addEventListener('mousedown', e => {
+                moveStart.x = e.clientX;
+                moveStart.y = e.clientY;
+            });
+
+            window.addEventListener('mouseup', e => {
+                const vx = (e.clientX - moveStart.x) / 20;
+                const vy = Math.abs(e.clientY - moveStart.y) / 20;
+
+                fireworks.launch({
+                    position: new Vector2D(canvas.width / 2, canvas.height),
+                    velocity: new Vector2D(vx, vy)
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

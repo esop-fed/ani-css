@@ -1,4 +1,7 @@
 import { createFragmentByTemplateString } from '../utils/dom.js';
+import Modal from './modal.js';
+
+const modal = new Modal();
 
 export const createCard = ({ title, path, description, poster }) => {
     const templateString = `
@@ -9,7 +12,27 @@ export const createCard = ({ title, path, description, poster }) => {
         </a>
     `;
 
-    return createFragmentByTemplateString(templateString);
+    const fm = createFragmentByTemplateString(templateString);
+
+    // if (/https?:/.test(path)) {
+    const a = fm.querySelector('.card');
+    a.href = 'javascript:;';
+    a.addEventListener('click', () => {
+        const newWin = document.createElement('iframe');
+        newWin.src = path;
+        newWin.classList.add('outlink-window');
+        modal.open({
+            title,
+            html: newWin,
+            style: {
+                wrap: 'padding: 0;'
+            },
+            showHeader: false
+        });
+    });
+    // }
+
+    return fm;
 };
 
 export const createCards = list => {
