@@ -127,7 +127,6 @@ a:visited {
 }
 
 .modal {
-  transform: translateX(-50%);
   max-height: 75vh;
   overflow: auto;
   padding: var(--padding-v) var(--padding-h);

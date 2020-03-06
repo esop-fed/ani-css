@@ -13,13 +13,15 @@
 </head>
 
 <body>
-    <canvas id="canvas"></canvas>
     <script type="module">
         import Fireworkds, { Vector2D } from './index.js';
 
-        initial(canvas, 100);
+        const canvas = document.createElement('canvas');
+        document.querySelector('body').append(canvas);
 
-        function initial(canvas, count = 10) {
+        initial(100);
+
+        function initial(count = 10) {
             const fireworks = new Fireworkds({
                 canvas,
                 auto: true,

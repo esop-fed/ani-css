@@ -21,7 +21,7 @@ export default class Modal {
     constructor(
         config = {
             mask: { in: 'fadeIn', out: 'fadeOut' },
-            modal: { in: 'bounceInDown', out: 'hinge' }
+            modal: { in: 'bounceInDown', out: 'bounceOutDown' }
         }
     ) {
         if (Modal.instance) {

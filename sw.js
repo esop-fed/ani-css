@@ -1,5 +1,5 @@
-const CACHE_PREFIX = 'anicss_catch_';
-const VERSION = 'v2.0';
+const CACHE_PREFIX = 'anicss_cache_';
+const VERSION = 'v2.1';
 const CACHE_NAME = CACHE_PREFIX + VERSION;
 
 self.addEventListener('install', event => {

@@ -116,6 +116,10 @@ class Fireworkds implements IFireworks {
     this.canvas = options.canvas;
     this.ctx = options.canvas.getContext('2d');
 
+    const ratio = window.devicePixelRatio;
+
+    this.ctx.scale(ratio, ratio);
+
     Object.assign(this, options)
   }
 
